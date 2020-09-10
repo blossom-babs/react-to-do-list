@@ -13,10 +13,12 @@ function App() {
   }
 
   function updateList() {
-    !inputText === "" &&
-      setItems((prevVal) => {
-        return [...prevVal, inputText];
-      });
+    if (inputText === "") {
+      return false
+    }
+    setItems((prevVal) => {
+      return [...prevVal, inputText];
+    })
     setInputText("");
   }
 
