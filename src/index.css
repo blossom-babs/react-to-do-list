@@ -80,3 +80,24 @@ li {
   position: relative;
   padding: 0.5rem;
 }
+
+/* to do item */
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-item__butttons button {
+  margin: 0 .5rem;
+  padding: .5rem;
+  background: #f1f5f8;
+
+}
+
+.todo-item__butttons--edit {
+  color: #fdcb6e;
+}
+
+.todo-item__butttons--delete {
+  color: rgb(105, 15, 15);
+}
