@@ -2,14 +2,32 @@ import React from "react";
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 
-function ToDo(props) {
+function ToDo({ item, id, setItems, setInputText }) {
+
+  //onClick={() => { props.edit(props.id) }}
+  function deleteItem(id) {
+    setItems(prevVal => {
+      return prevVal.filter((item, index) => {
+        return index !== id
+      })
+    })
+  }
+
+  function editItem(item, id) {
+    setInputText(item)
+    setItems(prevVal => {
+      return prevVal.filter((item, index) => {
+        return index !== id
+      })
+    })
+  }
 
   return (
     <div className="todo-item" >
-      <li>{props.item}</li>
+      <li>{item}</li>
       <div className="todo-item__butttons">
-        <button onClick={props.edit} className="todo-item__butttons--edit"><EditIcon /></button>
-        <button onClick={() => { props.delete(props.id) }} className="todo-item__butttons--delete"><DeleteIcon /></button>
+        <button onClick={() => { editItem(item, id) }} value="something" className="todo-item__butttons--edit"><EditIcon /></button>
+        <button onClick={() => { deleteItem(id) }} className="todo-item__butttons--delete"><DeleteIcon /></button>
       </div>
     </div>)
 }

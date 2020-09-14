@@ -26,18 +26,7 @@ function ToDoPage() {
     e.preventDefault();
   }
 
-  function deleteItem(id) {
-    console.log(id)
-    setItems(prevVal => {
-      return prevVal.filter((item, index) => {
-        return index !== id
-      })
-    })
-  }
 
-  function handleEdit() {
-    console.log(`edit was clicked`)
-  }
 
 
   return (
@@ -58,9 +47,11 @@ function ToDoPage() {
           {items.map((item, index) => (
             <ToDo key={index}
               id={index}
-              delete={deleteItem}
               item={item}
-              edit={handleEdit} />
+              items={items}
+              value={inputText}
+              setInputText={setInputText}
+              setItems={setItems} />
           ))}
         </ul>
       </div>
